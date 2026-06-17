@@ -14,7 +14,7 @@ fi
 # Gravar o nome do produto em um arquivo csv
 echo "$PROXIMO_ID,$PRODUTO" >> produtos.csv
 TOTAL_PRODUTOS_CADASTRADOS=$(wc -l < produtos.csv)
-PROXIMO_ID=$TOTAL_PRODUTOS_CADASTRADOS # Não estou usando o +1 porque tem o cabeçalho
+PROXIMO_ID=$((TOTAL_PRODUTOS_CADASTRADOS - 1)) # $(()) usado por ser uma expressão aritmética
 
 # Exibir mensagem de sucesso
 echo "Produto '$PRODUTO' registrado com sucesso!"
